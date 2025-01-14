@@ -14,6 +14,61 @@ A simple URL shortener service written in Go that allows users to create shorten
 - Redirect service for shortened URLs
 - In-memory storage of URL mappings
 
+- I'll add a section about project hosting options to the README.
+
+# URL Shortener
+
+A simple URL shortener service written in Go that allows users to create shortened URLs with either randomly generated keys or custom keys.
+
+## Features
+
+- Shorten long URLs with randomly generated 6-character keys
+- Create custom short URLs with user-defined keys
+- Web interface for URL shortening
+- Redirect service for shortened URLs
+- In-memory storage of URL mappings
+
+## Project URL Options
+
+For hosting this URL shortener, you have several options:
+
+1. **Local Development** (Current Setup):
+   - Currently configured to run on `http://localhost:8080`
+   - Suitable for testing and development
+
+2. **Production Hosting Options**:
+   - **Platform as a Service (PaaS)**:
+     - [Heroku](https://heroku.com) - Easy deployment with Go buildpack
+     - [Google App Engine](https://cloud.google.com/appengine) - Good for Go applications
+     - [DigitalOcean App Platform](https://www.digitalocean.com/products/app-platform)
+   
+   - **Infrastructure as a Service (IaaS)**:
+     - [AWS EC2](https://aws.amazon.com/ec2)
+     - [Google Compute Engine](https://cloud.google.com/compute)
+     - [DigitalOcean Droplets](https://www.digitalocean.com/products/droplets)
+
+3. **Required Changes for Production**:
+   - Update the hardcoded `localhost:8080` in the code to use environment variables
+   - Add HTTPS support
+   - Implement persistent storage
+   - Configure proper domain name
+
+Example code change for production URL:
+```go
+baseURL := os.Getenv("BASE_URL") // e.g., "https://your-domain.com"
+if baseURL == "" {
+    baseURL = "http://localhost:8080" // fallback for development
+}
+```
+
+## Prerequisites
+
+[Rest of the README remains the same as before...]
+
+[Previous sections about Prerequisites, Installation, Running the Application, Using the Application, Testing the Application, Limitations, Contributing, and License remain unchanged]
+
+Would you like me to elaborate on any specific hosting option or add more details about production deployment?
+
 ## Prerequisites
 
 - Go 1.16 or higher
